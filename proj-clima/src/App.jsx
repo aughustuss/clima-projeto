@@ -1,11 +1,25 @@
 import React, { useState } from 'react'
 import { getWeather } from './api'
 import { IoIosSearch } from 'react-icons/io'
+import Weather from './components/weather'
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 
 function App() {
   const [city, setcity] = useState('')
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState('');
+  const [lat, setLat] = useState(null);
+  const [lon, setLong] = useState(null);
+  const google = window.google
+
+  const containerStyle = {
+    width: '100%',
+    height: '200px'
+  }
+
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: import.meta.env.VITE_API_KEY,
+  })
 
   const handleChange = (e) => {
     setcity(e.target.value);
@@ -13,9 +27,11 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const weather = await getWeather(city, setError);
+      setLat(weather.coord.lat);
+      setLong(weather.coord.lon);
+      console.log(lat, lon);
       setWeather(weather);
     } catch (err) {
       setError('Cidade não encontrada. ');
@@ -24,18 +40,39 @@ function App() {
 
   return (
     <>
-      <form className='flex justify-center items-center bg-slate-200 h-screen w-full' >
-        <div className='w-96 h-2/3 bg-neutral-900 flex justify-center items-center rounded-xl'>
-          <div className='flex flex-row h-10 bg-transparent self-start mt-5 w-11/12' >
-            <input type="text" className='text-white w-10/12 bg-transparent text-center rounded-l border border-neutral-500 hover:cursor-pointer focus:border-neutral-500' />
-            <div className='ml-auto w-2/12 bg-white rounded-r flex items-center justify-center'>
-              <button type="submit" className='w-full h-full relative'>
-                <IoIosSearch className='absolute inset-0 m-auto w-3/5 h-3/5' />
-              </button>
+      <div className=' bg-opacity-90 bg-cover bg-center flex items-center pt-5 flex-col bg-slate-100 h-screen w-full'>
+        <div className='h-4/6  w-96 rounded-xl flex-col flex bg-violet-600  shadow-black shadow-2xl' >
+          <form onSubmit={handleSubmit} className='w-full h-1/6 flex justify-center items-center'>
+            <div className='flex flex-row h-10 bg-transparent self-start mt-10 w-11/12' >
+              <input value={city} onChange={handleChange} placeholder='Digite a cidade que deseja buscar: ' type="text" className='capitalize text-center text-white w-10/12 bg-transparent rounded-l border border-slate-400 hover:cursor-pointer focus:border-neutral-500' />
+              <div className='ml-auto w-2/12 bg-white rounded-r flex items-center justify-center'>
+                <button type="submit" className='w-full h-full relative hover:bg-slate-200 rounded-r'>
+                  <IoIosSearch className='absolute inset-0 m-auto w-3/5 h-3/5' />
+                </button>
+              </div>
             </div>
+          </form>
+          <div className='flex h-5/6 p-4 bg-transparent'>
+            {error ?
+              <p>{error}</p>
+              :
+              <Weather weather={weather} />
+            }
           </div>
         </div>
-      </form>
+        <div className='h-1/6 bg-transparent w-96 mt-10 rounded'>
+          <GoogleMap
+            zoom={15}
+            center={{
+              lat: lat,
+              lng: lon
+            }}
+            mapContainerStyle={containerStyle}
+          >
+            <Marker position={{lat: lat, lng: lon}} ></Marker>
+          </GoogleMap>
+        </div>
+      </div>
     </>
   )
 }
