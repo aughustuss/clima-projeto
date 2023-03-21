@@ -29,7 +29,7 @@ const Weather = ({weather}) => {
                     <p className='text-8xl w-full text-center justify-center flex '>{weather ? Math.round(weather.main?.temp - 273.15) : ''}ºC</p>
                     <div className='flex flex-col h-full justify-between p-2'>
                         <div className='flex flex-row items-center '>
-                            <BsWind/><p className='ml-3' >Velocidade do vento: {weather ? (weather.wind?.speed * 1.85): '-'}Km/h </p>
+                            <BsWind/><p className='ml-3' >Velocidade do vento: {weather ? (weather.wind?.speed * 1.85).toFixed(2) : '-'}Km/h </p>
                         </div>
                         <div className='flex flex-row items-center '>
                             <BsThermometer/><p className='ml-3' >Sensação térmica: {weather ? (weather.main?.feels_like - 273.15).toFixed(2) : '-'}ºC</p>

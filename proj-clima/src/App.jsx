@@ -40,11 +40,11 @@ function App() {
 
   return (
     <>
-      <div className=' bg-opacity-90 bg-cover bg-center flex items-center pt-5 flex-col bg-slate-100 h-screen w-full'>
-        <div className='h-4/6  w-96 rounded-xl flex-col flex bg-violet-600  shadow-black shadow-2xl' >
+      <div className=' bg-opacity-90 bg-cover bg-center flex items-center justify-center flex-col bg-slate-100 h-screen w-full'>
+        <div className='h-2/3  w-96 rounded-xl flex-col flex bg-violet-600  shadow-black shadow-2xl' >
           <form onSubmit={handleSubmit} className='w-full h-1/6 flex justify-center items-center'>
             <div className='flex flex-row h-10 bg-transparent self-start mt-10 w-11/12' >
-              <input value={city} onChange={handleChange} placeholder='Digite a cidade que deseja buscar: ' type="text" className='capitalize text-center text-white w-10/12 bg-transparent rounded-l border border-slate-400 hover:cursor-pointer focus:border-neutral-500' />
+              <input value={city} onChange={handleChange} placeholder='Digite a cidade que deseja buscar: ' type="text" className='capitalize text-center text-white w-10/12 bg-transparent rounded-l border border-slate-400 hover:cursor-pointer ' />
               <div className='ml-auto w-2/12 bg-white rounded-r flex items-center justify-center'>
                 <button type="submit" className='w-full h-full relative hover:bg-slate-200 rounded-r'>
                   <IoIosSearch className='absolute inset-0 m-auto w-3/5 h-3/5' />
@@ -59,18 +59,6 @@ function App() {
               <Weather weather={weather} />
             }
           </div>
-        </div>
-        <div className='h-1/6 bg-transparent w-96 mt-10 rounded'>
-          <GoogleMap
-            zoom={15}
-            center={{
-              lat: lat,
-              lng: lon
-            }}
-            mapContainerStyle={containerStyle}
-          >
-            <Marker position={{lat: lat, lng: lon}} ></Marker>
-          </GoogleMap>
         </div>
       </div>
     </>
