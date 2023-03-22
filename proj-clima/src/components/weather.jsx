@@ -22,7 +22,7 @@ const Weather = ({weather}) => {
                         </p>
                     </div>
                     <div className='h-full w-5/12 flex justify-center items-center'>
-                        <img src={`src/icons/${weather ? weather.weather[0].icon : 'unknown'}.png`} alt={'weather'} className='h-3/4 w-3/4' />
+                        <img src={`src/assets/icons/${weather ? weather.weather[0].icon : 'unknown'}.png`} alt={'weather'} className='h-3/4 w-3/4' />
                     </div>
                 </div>
                 <div className='h-3/5 w-full flex flex-col '>
