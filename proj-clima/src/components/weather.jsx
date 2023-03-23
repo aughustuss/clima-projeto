@@ -28,7 +28,6 @@ const Weather = ({ weather }) => {
                     <div className='h-full w-5/12 flex bg-cover justify-center items-center'>
                         <div className='h-fit w-full flex' >
                             <img src={`src/assets/icons/${weather ? weather.weather[0].icon : 'unknown'}.png`} alt={'weather'} className='h-3/4 w-3/4' />
-
                         </div>
                     </div>
                 </div>
