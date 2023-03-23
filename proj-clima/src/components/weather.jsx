@@ -10,7 +10,7 @@ const Weather = ({ weather }) => {
         <>
             <div className=' h-full w-full flex flex-col  font-poppins text-sm justify-evenly'>
                 <div className='h-2/5 w-full flex flex-row '>
-                    <div className='p-2 h-full w-7/12 flex justify-evenly    items-start flex-col text-md'>
+                    <div className='p-2 h-full w-8/12 flex justify-evenly    items-start flex-col text-md'>
                         <div className='flex flex-row items-center justify-center'>
                             <MdLocationOn size={18} />
                             <p className='ml-3' >
@@ -25,9 +25,9 @@ const Weather = ({ weather }) => {
                             </p>
                         </div>
                     </div>
-                    <div className='h-full w-5/12 flex bg-cover justify-center items-center'>
+                    <div className='h-full w-4/12 flex bg-cover justify-center items-center'>
                         <div className='h-fit w-full flex' >
-                            <img src={`src/assets/icons/${weather ? weather.weather[0].icon : 'unknown'}.png`} alt={'weather'} className='h-3/4 w-3/4' />
+                            <img src={`https://openweathermap.org/img/w/${weather ? weather.weather[0].icon : 'unknown'}.png`} alt={'weather'} className='h-3/4 w-3/4' />
                         </div>
                     </div>
                 </div>

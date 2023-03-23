@@ -43,7 +43,7 @@ function App() {
   return (
     <>
       <div style={{ backgroundImage: `url(${backimg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }} className='flex items-center justify-center flex-col bg-slate-50 h-screen w-full'>
-        <div className='text-black h-5/6 w-fit sm:w-3/4 md:w-2/4 lg:w-1/4 rounded-xl flex-col flex bg-neutral-100 shadow-sky-900 shadow-sm  max-h-fit' >
+        <div className='text-black h-5/6 w-fit sm:w-3/4 md:w-2/4 lg:w-1/4 rounded-sm flex-col flex bg-neutral-100 shadow-sky-900 shadow-sm' >
           <form onSubmit={handleSubmit} className='w-full h-1/6 flex justify-center items-center'>
             <div className='flex flex-row h-10 bg-transparent self-start mt-10 w-11/12 border border-slate-300 rounded' >
               <input value={city} onChange={handleChange} placeholder='Digite uma cidade:' type="text" className='bg-white capitalize text-center text-black w-10/12 rounded-l hover:cursor-pointer ' />
