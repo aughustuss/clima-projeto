@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { getWeather } from './api'
 import { IoIosSearch } from 'react-icons/io'
 import Weather from './components/weather'
-import backImg from './assets/skyimg.jpg'
 import axios from 'axios'
 
 function App() {
   const [city, setcity] = useState('')
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState('');
-  const [backimg, setBackimg] = useState('');
+  const [backimg, setBackimg] = useState('https://live.staticflickr.com/65535/52825740603_6d745bc76f_o.jpg');
 
   const handleChange = (e) => {
     setcity(e.target.value);
@@ -19,8 +18,6 @@ function App() {
     await axios.get(`https://api.unsplash.com/search/photos?page=1&query=${city}&client_id=${import.meta.env.VITE_API_KEY}`).then((res) => {
       if (res.data.results) {
         setBackimg(res.data.results[(Math.floor(Math.random() * 6))].urls.raw);
-      } else {
-        setBackimg(backImg);
       }
     }).catch((err) => {
       console.log(err);
@@ -42,7 +39,7 @@ function App() {
 
   return (
     <>
-      <div style={{ backgroundImage: `url(${backimg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }} className='flex items-center justify-center flex-col bg-slate-50 h-screen w-full'>
+      <div style={{ backgroundImage: `url(${backimg})`}} className='flex items-center justify-center flex-col bg-slate-50 h-screen w-full bg-cover bg-no-repeat'>
         <div className='text-black h-5/6 w-fit sm:w-3/4 md:w-2/4 lg:w-1/4 rounded-sm flex-col flex bg-neutral-100 shadow-sky-900 shadow-sm' >
           <form onSubmit={handleSubmit} className='w-full h-1/6 flex justify-center items-center'>
             <div className='flex flex-row h-10 bg-transparent self-start mt-10 w-11/12 border border-slate-300 rounded' >
