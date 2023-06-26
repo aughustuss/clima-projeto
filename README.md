@@ -1,3 +1,39 @@
-# Um projeto feito com ReactJS e TailwindCSS.
 
-Este pequeno projeto trata de uma aplicação responsável por retornar as informações climáticas de uma localização digitada. Ela exibe também imagens dos locais digitados. Ela aborda conceitos de Responsividade (UX) e chamadas de APIs (REST) com Axios e a manipulação desses dados.
+# ADGet Your Weather
+
+Uma aplicação que recupera o clima de uma localização digitada e exibe uma imagem correspondente ao nome no fundo.
+
+
+## Stack utilizada
+
+**Front-end:** ReactJS, TailwindCSS e ViteJS
+
+
+
+## Funcionalidades
+
+- Visualização do clima de uma determinada localidade
+- Troca de imagem de fundo
+
+
+## Instalação
+
+Instale projeto-clima com npm
+
+```bash
+  cd proj-clima
+  npm i
+```
+    
+## Link para o projeto 
+
+https://proj-clima-aughustuss.vercel.app/
+
+## Dependências utilizadas
+
+- @react-google-maps/api
+- react-icons
+- axios
+- postcss
+- tailwindcss
+
