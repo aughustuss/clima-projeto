@@ -27,7 +27,7 @@ const Weather = ({ weather }) => {
                     </div>
                     <div className='h-full w-4/12 flex bg-cover justify-center items-center'>
                         <div className='h-fit w-full flex' >
-                            <img src={` https://openweathermap.org/img/wn/${weather ? weather.weather[0].icon : 'unknown'}@2x.png`} alt={'weather'} className='h-3/4 w-3/4' />
+                            <img src={` https://openweathermap.org/img/wn/${weather ? weather.weather[0].icon : 'unknown'}@2x.png`} alt={'weather'} className='h-3/4 w-3/4 bg-blue-500 rounded-full' />
                         </div>
                     </div>
                 </div>
