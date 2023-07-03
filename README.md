@@ -18,11 +18,18 @@ Uma aplicação que recupera o clima de uma localização digitada e exibe uma i
 
 ## Instalação
 
-Instale projeto-clima com npm
+Instale projeto-clima
 
 ```bash
-  cd proj-clima
   npm i
+```
+
+```bash
+  pnpm i
+```
+
+```bash
+  yarn add
 ```
     
 ## Link para o projeto 
