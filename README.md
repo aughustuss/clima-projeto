@@ -31,6 +31,12 @@ Instale projeto-clima
 ```bash
   yarn add
 ```
+
+Rode projeto-clima
+
+```bash
+  npm run dev
+```
     
 ## Link para o projeto 
 
